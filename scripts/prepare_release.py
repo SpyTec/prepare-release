@@ -26,7 +26,7 @@ def prepare_release(version: str, specfile_path: str):
             specfile.version = version
             specfile.release = "1"
             specfile.add_changelog_entry(
-                f"- New upstream release {version}",
+                get_changelog(get_relevant_commits(repo), repo_name, include_pr=False),
                 author="Packit Team <hello@packit.dev>",
             )
 
